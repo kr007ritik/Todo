@@ -1,4 +1,4 @@
-body{
+body {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
@@ -11,39 +11,43 @@ body{
     align-items: center;
 }
 
-#app{
+#app {
     text-align: center;
-    max-width: 500px ;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #212121;
+    padding: 10px;
 }
 
-#app h1{
-}
+#app h1 {}
 
-#app input{
+#app input {
     display: inline-block;
-    /* width:70%; */
-    /* height: 50px; */
     padding: 10px;
     font-size: 22px;
+    outline: 0;
 }
 
-#app button{
-    /* height: 50px; */
+#app button {
     padding: 10px;
     font-size: 22px;
+    outline: 0;
     cursor: pointer;
-
 }
 
-ul{
+ul {
     padding: 0;
-    margin: 10px 0;
+    margin: 160px 0 10px;
+    /* border: 2px solid red; */
 }
 
-ul li{
+ul li {
     width: 500px;
     display: flex;
-    list-style-type:square;
+    list-style-type: square;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
@@ -51,9 +55,10 @@ ul li{
     padding: 10px;
     margin: 5px 0;
     border-radius: 5px;
+    cursor: pointer;
 }
 
-ul li span{
+ul li span {
     font-size: 18px;
     color: #212121;
     overflow: hidden;
@@ -61,7 +66,7 @@ ul li span{
     text-align: left;
 }
 
-ul li button{
+ul li button {
     height: 50px;
     padding: 10px;
     font-size: 18px;
@@ -71,13 +76,73 @@ ul li button{
     color: grey;
 }
 
-.completed{
+.notComplted::before {
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    background-image: url(images/unchecked.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.completed {
     /* background-color: rgb(4, 172, 4); */
     background-color: lightgreen;
 }
 
-.completed span{
-    color: rgb(106, 106, 106);
-    text-decoration:line-through;
+.notComplted span {
+    margin-left: 50px;
+
 }
 
+.completed span {
+    color: rgb(106, 106, 106);
+    text-decoration: line-through;
+    margin-left: 50px;
+}
+
+.completed::before {
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    background-image: url(images/checked.png);
+    background-size: cover;
+    background-position: center;
+}
+
+@media only screen and (max-width: 545px) {
+    ul li {
+        width: 450px;
+    }
+}
+
+@media only screen and (max-width: 490px) {
+    ul li {
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    ul li {
+        width: 370px;
+    }
+
+    ul {
+        margin: 210px 0 10px;
+    }
+
+    #app input {
+        display:block;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 5px;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    ul li {
+        width: 330px;
+    }
+}
